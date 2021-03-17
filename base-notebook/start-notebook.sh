@@ -13,7 +13,6 @@ if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
     # launched by JupyterHub, use single-user entrypoint
     exec /usr/local/bin/start-singleuser.sh "$@"
 elif [[ ! -z "${JUPYTER_ENABLE_LAB}" ]]; then
-    echo "$@"
     . /usr/local/bin/start.sh $wrapper jupyter lab "$@"
 else
     echo "WARN: Jupyter Notebook deprecation notice https://github.com/jupyter/docker-stacks#jupyter-notebook-deprecation-notice."
