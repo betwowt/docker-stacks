@@ -4,10 +4,13 @@
 # Ubuntu 20.04 (focal)
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
+ENV http_proxy http://192.168.10.78:1080
+ENV https_proxy http://192.168.10.78:1080
 ARG ROOT_CONTAINER=ubuntu:focal-20210119@sha256:3093096ee188f8ff4531949b8f6115af4747ec1c58858c091c8cb4579c39cc4e
 
 ARG BASE_CONTAINER=$ROOT_CONTAINER
 FROM $BASE_CONTAINER
+
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 ARG NB_USER="jovyan"
@@ -168,3 +171,6 @@ RUN fix-permissions /etc/jupyter/
 USER $NB_UID
 
 WORKDIR $HOME
+
+ENV http_proxy ""
+ENV https_proxy ""
