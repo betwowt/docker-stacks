@@ -69,7 +69,8 @@ ENV CONDA_DIR=/opt/conda \
 ENV PATH=$CONDA_DIR/bin:$PATH \
     HOME=/home/$NB_USER \
     CONDA_VERSION="${conda_version}" \
-    MINIFORGE_VERSION="${miniforge_version}"
+    MINIFORGE_VERSION="${miniforge_version}"\
+    BASE_URL=$BASE_URL
 
 # Copy a script that we will use to correct permissions after running certain commands
 COPY fix-permissions /usr/local/bin/fix-permissions
