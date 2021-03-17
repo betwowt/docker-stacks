@@ -166,6 +166,7 @@ USER root
 RUN sed -re "s/c.NotebookApp/c.ServerApp/g" \
     /etc/jupyter/jupyter_notebook_config.py > /etc/jupyter/jupyter_server_config.py
 
+
 RUN fix-permissions /etc/jupyter/
 
 # Switch back to jovyan to avoid accidental container runs as root
